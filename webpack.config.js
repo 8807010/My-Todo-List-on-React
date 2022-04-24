@@ -27,3 +27,5 @@ module.exports = {
         ]
     }
 };
+
+// npm run serve - to start

@@ -1,32 +1,49 @@
 import React from 'react';
 import {useState} from 'react';
 import "./App.scss";
+import MyInput from './MyInput';
+import MyButton from './MyButton';
+import PostList from './PostList';
 
 export function App() {
 
-    const [comment, setComment] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [title, setTitle] = useState('');
+    const [body, setBody] = useState('');
 
-    let inputRef = React.createRef();
+    // const bodyInputRef = useRef();
 
-    function addMessage() {
-        let commentValue = inputRef.current.value;
-        let comments = [...comment, commentValue];
-        setComment(comments);
-        inputRef.current.value = '';
+    const AddNewPost = (e) => {
+        e.preventDefault();
+        const newPost = {
+            id: Date.now(),
+            title,
+            body
+        }
+        setPosts([...posts, newPost])
+        setBody('')
     }
 
+    
     return (
         <div className="container">
-            <div className="app-wrapper">
-                <h1 className="header-title">Please enter your text</h1>
-                <input className="task-input" type="text" placeholder="Enter your message..." ref={inputRef}/>
-                <button className="button" type="submit" onClick={addMessage}> PUSH </button>
-                <div>
-                    <ul>
-                        {comment.map((item, index) => <li className="list-item" key={index.toString()}> {item} </li>)}
-                    </ul>
-                </div>
-            </div>
+
+            <form className='app-wrapper'>
+                <MyInput
+                    className="task-input"
+                    value={title}
+                    onChange={e => setTitle(e.target.value)}
+                    type="text"
+                    placeholder="Введите ваш комментарий"
+                />
+
+                <MyButton onClick={AddNewPost}>Создать пост</MyButton>
+
+                <PostList posts={posts} title="Список постов"/>
+            </form>
+
         </div>
     );
 }
+
+export default App;
