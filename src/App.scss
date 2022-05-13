@@ -11,6 +11,8 @@
   justify-content: center;
   align-items: center;
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-wrapper {
@@ -43,8 +45,6 @@
 .header-title {
   color: #fff;
   text-align: center;
-  margin: 30px 0;
-  text-align: "center";
 }
 
 .button {
@@ -56,4 +56,14 @@
   background-color: #f1af71;
   cursor: pointer;
   text-align: center;
+}
+
+.post-list {
+  background-color: #858b27;
+  min-width: 450px;
+  // font-size: 28px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 3px 6px 40px black;
+  margin-bottom: 10px;
 }
