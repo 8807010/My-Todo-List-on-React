@@ -38,9 +38,9 @@ export function App() {
                 />
 
                 <MyButton onClick={AddNewPost}>Создать пост</MyButton>
-
-                <PostList posts={posts} title="Список постов"/>
             </form>
+
+            <PostList posts={posts} title="Список постов"/>
 
         </div>
     );
