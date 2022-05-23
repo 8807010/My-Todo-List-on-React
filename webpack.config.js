@@ -28,4 +28,4 @@ module.exports = {
     }
 };
 
-// npm run serve - to start
+//  - to startnpm run serve
