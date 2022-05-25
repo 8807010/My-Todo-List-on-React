@@ -1,13 +1,20 @@
 import React from 'react';
-import PostListItem from './../postItem/PostItem';
+import PostItem from '../postItem/PostItem';
 
-export default function PostList() {
-    return (
-        <ul className='app-list list-group'>
-            <PostListItem />
-            <PostListItem />
-            <PostListItem />
-            <PostListItem />
-        </ul>
-    )
-}
+export default function PostList({ posts }) {
+
+        return (
+        <div>
+            <h1>Дополните список</h1>
+
+            {posts.map((post, index) =>
+                <PostItem
+                    post={post}
+                    key={post.id}
+                    number={index}
+                />
+            )}
+        </div>
+
+    );
+};
